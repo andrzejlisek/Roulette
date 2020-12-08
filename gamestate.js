@@ -23,7 +23,9 @@ function StateRefresh()
         DataDelete("Roulette_Player_" + I + "_WheelNeighLastS");
         DataDelete("Roulette_Player_" + I + "_WheelNeighLastN");
         DataDelete("Roulette_Player_" + I + "_BetList");
+        DataDelete("Roulette_Player_" + I + "_BetList0");
     }
+    DataDelete("Roulette_SpinMode");
     DataDelete("Roulette_Player_C");
     DataDelete("Roulette_Player_N");
     DataDelete("Roulette_TableChipSensors");
@@ -33,6 +35,7 @@ function StateRefresh()
     DataDelete("Roulette_WheelSplitPos");
     DataDelete("AngleOffsetI");
     DataDelete("Roulette_SpinHist");
+    DataDelete("Roulette_ProbMode");
 }
 
 function StateRefreshReset()
@@ -62,6 +65,7 @@ function StateLoad()
     WheelSplitPos = DataGetIDefault("Roulette_WheelSplitPos", 88);
     AngleOffsetI = DataGetIDefault("AngleOffsetI", 0);
     SpinHist = Str2Obj(DataGetDefault("Roulette_SpinHist", Obj2Str(SpinHist)));
+    ProbMode = DataGetBDefault("Roulette_ProbMode", ProbMode);
 }
 
 function StateSave()
@@ -76,6 +80,7 @@ function StateSave()
     DataSetI("Roulette_WheelSplitPos", WheelSplitPos);
     DataSetI("AngleOffsetI", AngleOffsetI);
     DataSetI("Roulette_SpinHist", Obj2Str(SpinHist));
+    DataSetB("Roulette_ProbMode", ProbMode);
 }
 
 function StateSaveGame()
@@ -97,6 +102,7 @@ function StatePlayerSave_(I)
     DataSetI("Roulette_Player_" + I + "_WheelNeighLastS", GamePlayer_[I].WheelNeighLastS);
     DataSetI("Roulette_Player_" + I + "_WheelNeighLastN", GamePlayer_[I].WheelNeighLastN);
     DataSet("Roulette_Player_" + I + "_BetList", Obj2Str(GamePlayer_[I].BetList));
+    DataSet("Roulette_Player_" + I + "_BetList0", Obj2Str(GamePlayer_[I].BetList0));
 }
 
 function StatePlayerLoad_(I)
@@ -113,6 +119,7 @@ function StatePlayerLoad_(I)
     GamePlayer_[I].WheelNeighLastS = DataGetI("Roulette_Player_" + I + "_WheelNeighLastS");
     GamePlayer_[I].WheelNeighLastN = DataGetI("Roulette_Player_" + I + "_WheelNeighLastN");
     GamePlayer_[I].BetList = Str2Obj(DataGet("Roulette_Player_" + I + "_BetList"));
+    GamePlayer_[I].BetList0 = Str2Obj(DataGet("Roulette_Player_" + I + "_BetList0"));
 }
 
 function StatePlayerSave(All)

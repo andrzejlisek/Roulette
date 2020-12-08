@@ -109,8 +109,9 @@ function TableClick(X, Y, Btn)
             if (X < (TableW / 3))
             {
                 ViewModeI--;
-                if ((GameType == 1) && (ViewModeI == 3))
+                if ((GameType == 1) && (ViewModeI == 4))
                 {
+                    ViewModeI--;
                     ViewModeI--;
                     ViewModeI--;
                 }
@@ -124,6 +125,7 @@ function TableClick(X, Y, Btn)
                 ViewModeI++;
                 if ((GameType == 1) && (ViewModeI == 1))
                 {
+                    ViewModeI++;
                     ViewModeI++;
                     ViewModeI++;
                 }
@@ -592,64 +594,64 @@ function TableClick(X, Y, Btn)
                 // One number
                 case 5001:
                 case 5002:
-                case 5003:  PutChip(1,104,  0,  0, 0, 0, 0, Btn); break;
+                case 5003:  PutChip(1,  0,  0,  0, 0, 0, 0, Btn); break;
                 case 5005:
                 case 5006:
-                case 5007:  PutChip(1,103,  0,  0, 0, 0, 0, Btn); break;
+                case 5007:  PutChip(1,101,  0,  0, 0, 0, 0, Btn); break;
                 case 5009:
                 case 5010:
                 case 5011:  PutChip(1,102,  0,  0, 0, 0, 0, Btn); break;
                 case 5013:
                 case 5014:
-                case 5015:  PutChip(1,101,  0,  0, 0, 0, 0, Btn); break;
+                case 5015:  PutChip(1,103,  0,  0, 0, 0, 0, Btn); break;
                 case 5017:
                 case 5018:
-                case 5019:  PutChip(1,  0,  0,  0, 0, 0, 0, Btn); break;
+                case 5019:  PutChip(1,104,  0,  0, 0, 0, 0, Btn); break;
 
                 // Two numbers
-                case 5004:  PutChip(2,103,104,  0, 0, 0, 0, Btn); break;
-                case 5008:  PutChip(2,102,103,  0, 0, 0, 0, Btn); break;
-                case 5012:  PutChip(2,101,102,  0, 0, 0, 0, Btn); break;
-                case 5016:  PutChip(2,  0,101,  0, 0, 0, 0, Btn); break;
-                case 6001:  PutChip(2,104, 10,  0, 0, 0, 0, Btn); break;
-                case 6003:  PutChip(2,104,  9,  0, 0, 0, 0, Btn); break;
-                case 6005:  PutChip(2,103,  8,  0, 0, 0, 0, Btn); break;
-                case 6007:  PutChip(2,103,  7,  0, 0, 0, 0, Btn); break;
-                case 6009:  PutChip(2,102,  6,  0, 0, 0, 0, Btn); break;
-                case 6011:  PutChip(2,102,  5,  0, 0, 0, 0, Btn); break;
-                case 6013:  PutChip(2,101,  4,  0, 0, 0, 0, Btn); break;
-                case 6015:  PutChip(2,101,  3,  0, 0, 0, 0, Btn); break;
-                case 6017:  PutChip(2,  0,  2,  0, 0, 0, 0, Btn); break;
-                case 6019:  PutChip(2,  0,  1,  0, 0, 0, 0, Btn); break;
+                case 5004:  PutChip(2,  0,101,  0, 0, 0, 0, Btn); break;
+                case 5008:  PutChip(2,101,102,  0, 0, 0, 0, Btn); break;
+                case 5012:  PutChip(2,102,103,  0, 0, 0, 0, Btn); break;
+                case 5016:  PutChip(2,103,104,  0, 0, 0, 0, Btn); break;
+                case 6001:  PutChip(2,  0,  1,  0, 0, 0, 0, Btn); break;
+                case 6003:  PutChip(2,  0,  2,  0, 0, 0, 0, Btn); break;
+                case 6005:  PutChip(2,101,  3,  0, 0, 0, 0, Btn); break;
+                case 6007:  PutChip(2,101,  4,  0, 0, 0, 0, Btn); break;
+                case 6009:  PutChip(2,102,  5,  0, 0, 0, 0, Btn); break;
+                case 6011:  PutChip(2,102,  6,  0, 0, 0, 0, Btn); break;
+                case 6013:  PutChip(2,103,  7,  0, 0, 0, 0, Btn); break;
+                case 6015:  PutChip(2,103,  8,  0, 0, 0, 0, Btn); break;
+                case 6017:  PutChip(2,104,  9,  0, 0, 0, 0, Btn); break;
+                case 6019:  PutChip(2,104, 10,  0, 0, 0, 0, Btn); break;
 
                 // Three numbers
-                case 6002:  PutChip(3,104,  9, 10, 0, 0, 0, Btn); break;
-                case 6006:  PutChip(3,103,  7,  8, 0, 0, 0, Btn); break;
+                case 6002:  PutChip(3,  0,  1,  2, 0, 0, 0, Btn); break;
+                case 6006:  PutChip(3,101,  3,  4, 0, 0, 0, Btn); break;
                 case 6010:  PutChip(3,102,  5,  6, 0, 0, 0, Btn); break;
-                case 6014:  PutChip(3,101,  3,  4, 0, 0, 0, Btn); break;
-                case 6018:  PutChip(3,  0,  1,  2, 0, 0, 0, Btn); break;
+                case 6014:  PutChip(3,103,  7,  8, 0, 0, 0, Btn); break;
+                case 6018:  PutChip(3,104,  9, 10, 0, 0, 0, Btn); break;
 
                 // Four numbers
-                case 6004:  PutChip(4,103,104,  8, 9, 0, 0, Btn); break;
-                case 6008:  PutChip(4,102,103,  6, 7, 0, 0, Btn); break;
-                case 6012:  PutChip(4,101,102,  4, 5, 0, 0, Btn); break;
-                case 6016:  PutChip(4,  0,101,  2, 3, 0, 0, Btn); break;
+                case 6004:  PutChip(4,  0,101,  2, 3, 0, 0, Btn); break;
+                case 6008:  PutChip(4,101,102,  4, 5, 0, 0, Btn); break;
+                case 6012:  PutChip(4,102,103,  6, 7, 0, 0, Btn); break;
+                case 6016:  PutChip(4,103,104,  8, 9, 0, 0, Btn); break;
 
                 // Special bets
                 case 5020:  PutChip(5,  1,  0,  0, 0, 0, 0, Btn); break;
                 case 6020:  PutChip(5,  2,  0,  0, 0, 0, 0, Btn); break;
 
                 // Ten numbers along table
-                case 27001: PutChip(6, 10,  0,  0, 0, 0, 0, Btn); break;
-                case 27003: PutChip(6,  9,  0,  0, 0, 0, 0, Btn); break;
-                case 27005: PutChip(6,  8,  0,  0, 0, 0, 0, Btn); break;
-                case 27007: PutChip(6,  7,  0,  0, 0, 0, 0, Btn); break;
-                case 27009: PutChip(6,  6,  0,  0, 0, 0, 0, Btn); break;
-                case 27011: PutChip(6,  5,  0,  0, 0, 0, 0, Btn); break;
-                case 27013: PutChip(6,  4,  0,  0, 0, 0, 0, Btn); break;
-                case 27015: PutChip(6,  3,  0,  0, 0, 0, 0, Btn); break;
-                case 27017: PutChip(6,  2,  0,  0, 0, 0, 0, Btn); break;
-                case 27019: PutChip(6,  1,  0,  0, 0, 0, 0, Btn); break;
+                case 27001: PutChip(6,  1,  0,  0, 0, 0, 0, Btn); break;
+                case 27003: PutChip(6,  2,  0,  0, 0, 0, 0, Btn); break;
+                case 27005: PutChip(6,  3,  0,  0, 0, 0, 0, Btn); break;
+                case 27007: PutChip(6,  4,  0,  0, 0, 0, 0, Btn); break;
+                case 27009: PutChip(6,  5,  0,  0, 0, 0, 0, Btn); break;
+                case 27011: PutChip(6,  6,  0,  0, 0, 0, 0, Btn); break;
+                case 27013: PutChip(6,  7,  0,  0, 0, 0, 0, Btn); break;
+                case 27015: PutChip(6,  8,  0,  0, 0, 0, 0, Btn); break;
+                case 27017: PutChip(6,  9,  0,  0, 0, 0, 0, Btn); break;
+                case 27019: PutChip(6, 10,  0,  0, 0, 0, 0, Btn); break;
 
                 // Ten numbers across table
                 case 7020:  PutChip(6, 11,  0,  0, 0, 0, 0, Btn); break;
@@ -664,15 +666,15 @@ function TableClick(X, Y, Btn)
                 case 25020: PutChip(6, 20,  0,  0, 0, 0, 0, Btn); break;
 
                 // Twenty numbers along table
-                case 27002: PutChip(7,  9,  0,  0, 0, 0, 0, Btn); break;
-                case 27004: PutChip(7,  8,  0,  0, 0, 0, 0, Btn); break;
-                case 27006: PutChip(7,  7,  0,  0, 0, 0, 0, Btn); break;
-                case 27008: PutChip(7,  6,  0,  0, 0, 0, 0, Btn); break;
+                case 27002: PutChip(7,  1,  0,  0, 0, 0, 0, Btn); break;
+                case 27004: PutChip(7,  2,  0,  0, 0, 0, 0, Btn); break;
+                case 27006: PutChip(7,  3,  0,  0, 0, 0, 0, Btn); break;
+                case 27008: PutChip(7,  4,  0,  0, 0, 0, 0, Btn); break;
                 case 27010: PutChip(7,  5,  0,  0, 0, 0, 0, Btn); break;
-                case 27012: PutChip(7,  4,  0,  0, 0, 0, 0, Btn); break;
-                case 27014: PutChip(7,  3,  0,  0, 0, 0, 0, Btn); break;
-                case 27016: PutChip(7,  2,  0,  0, 0, 0, 0, Btn); break;
-                case 27018: PutChip(7,  1,  0,  0, 0, 0, 0, Btn); break;
+                case 27012: PutChip(7,  6,  0,  0, 0, 0, 0, Btn); break;
+                case 27014: PutChip(7,  7,  0,  0, 0, 0, 0, Btn); break;
+                case 27016: PutChip(7,  8,  0,  0, 0, 0, 0, Btn); break;
+                case 27018: PutChip(7,  9,  0,  0, 0, 0, 0, Btn); break;
 
                 // Twenty numbers across table
                 case 8020:  PutChip(7, 11,  0,  0, 0, 0, 0, Btn); break;
@@ -698,7 +700,7 @@ function TableClick(X, Y, Btn)
                 case 7021:
                 case 8021:
                 case 9021:
-                case 10021: PutChip(8,  5,  0,  0, 0, 0, 0, Btn); break;
+                case 10021: PutChip(8,  2,  0,  0, 0, 0, 0, Btn); break;
                 case 1007:
                 case 1008:
                 case 1009:
@@ -711,7 +713,7 @@ function TableClick(X, Y, Btn)
                 case 12021:
                 case 13021:
                 case 14021:
-                case 15021: PutChip(8,  4,  0,  0, 0, 0, 0, Btn); break;
+                case 15021: PutChip(8,  3,  0,  0, 0, 0, 0, Btn); break;
                 case 1011:
                 case 1012:
                 case 1013:
@@ -724,7 +726,7 @@ function TableClick(X, Y, Btn)
                 case 17021:
                 case 18021:
                 case 19021:
-                case 20021: PutChip(8,  3,  0,  0, 0, 0, 0, Btn); break;
+                case 20021: PutChip(8,  4,  0,  0, 0, 0, 0, Btn); break;
                 case 1015:
                 case 1016:
                 case 1017:
@@ -737,35 +739,35 @@ function TableClick(X, Y, Btn)
                 case 22021:
                 case 23021:
                 case 24021:
-                case 25021: PutChip(8,  2,  0,  0, 0, 0, 0, Btn); break;
+                case 25021: PutChip(8,  5,  0,  0, 0, 0, 0, Btn); break;
             }
             if ((XX >= 7) && (XX <= 25) && (YY >= 1) && (YY <= 19))
             {
                 // One number
                 if (((XX % 2) == 1) && ((YY % 2) == 1))
                 {
-                    var XXYY = ((21 - YY) / 2) + ((XX * 5) - 35);
+                    var XXYY = ((1 + YY) / 2) + ((XX * 5) - 35);
                     PutChip(1, XXYY, 0, 0, 0, 0, 0, Btn);
                 }
 
                 // Two numbers along table
                 if (((XX % 2) == 0) && ((YY % 2) == 1))
                 {
-                    var XXYY = ((21 - YY) / 2) + ((XX * 5) - 40);
+                    var XXYY = ((1 + YY) / 2) + ((XX * 5) - 40);
                     PutChip(2, XXYY, XXYY + 10, 0, 0, 0, 0, Btn);
                 }
 
-                // Two numbers scross table
+                // Two numbers across table
                 if (((XX % 2) == 1) && ((YY % 2) == 0))
                 {
-                    var XXYY = ((20 - YY) / 2) + ((XX * 5) - 35);
+                    var XXYY = ((0 + YY) / 2) + ((XX * 5) - 35);
                     PutChip(2, XXYY, XXYY + 1, 0, 0, 0, 0, Btn);
                 }
 
                 // Four numbers
                 if (((XX % 2) == 0) && ((YY % 2) == 0))
                 {
-                    var XXYY = ((20 - YY) / 2) + ((XX * 5) - 40);
+                    var XXYY = ((0 + YY) / 2) + ((XX * 5) - 40);
                     PutChip(4, XXYY, XXYY + 1, XXYY + 10, XXYY + 11, 0, 0, Btn);
                 }
             }
@@ -857,25 +859,25 @@ function TableClick(X, Y, Btn)
             {
                 case 5001:
                 case 5002:
-                case 5003: WheelPos =  21; SpinState = SpinStop; break;
+                case 5003: WheelPos =  0; SpinState = SpinStop; break;
                 case 5005:
                 case 5006:
-                case 5007: WheelPos =  63; SpinState = SpinStop; break;
+                case 5007: WheelPos = 84; SpinState = SpinStop; break;
                 case 5009:
                 case 5010:
-                case 5011: WheelPos =  42; SpinState = SpinStop; break;
+                case 5011: WheelPos = 42; SpinState = SpinStop; break;
                 case 5013:
                 case 5014:
-                case 5015: WheelPos =  84; SpinState = SpinStop; break;
+                case 5015: WheelPos = 63; SpinState = SpinStop; break;
                 case 5017:
                 case 5018:
-                case 5019: WheelPos =   0; SpinState = SpinStop; break;
+                case 5019: WheelPos = 21; SpinState = SpinStop; break;
             }
             if ((XX >= 7) && (XX <= 25) && (YY >= 1) && (YY <= 19))
             {
                 if (((XX % 2) == 1) && ((YY % 2) == 1))
                 {
-                    var XXYY = ((21 - YY) / 2) + ((XX * 5) - 35);
+                    var XXYY = ((1 + YY) / 2) + ((XX * 5) - 35);
                     for (var I = 0; I < 105; I++)
                     {
                         if (WheelNums[I] == XXYY)
@@ -984,43 +986,49 @@ function TableClick(X, Y, Btn)
     // Click on the player list
     if ((!Spinning) && PlayersVisible && PlayerSelected() && (X > PlayersX) && (Y > PlayersY) && (X < (PlayersX + PlayersW)) && (Y < (PlayersY + PlayersH)))
     {
-        var TempName = GamePlayer_[GamePlayer_N].Name;
-        var TempAmount = GamePlayer_[GamePlayer_N].Amount;
-        TempName = prompt("Player name", TempName);
-        if (TempName !== null)
+        if (ProbMode)
         {
-            if (TempName != "")
+            ProbOpen();
+        }
+        else
+        {
+            var TempName = GamePlayer_[GamePlayer_N].Name;
+            var TempAmount = GamePlayer_[GamePlayer_N].Amount;
+            TempName = prompt("Player name", TempName);
+            if (TempName !== null)
             {
-                TempAmount = prompt("Balance", TempAmount);
-                if (TempAmount !== null)
+                if (TempName != "")
                 {
-                    if (isNaN(TempAmount)) { TempAmount = 0; }
-                    GamePlayer_[GamePlayer_N].Name = TempName;
-                    GamePlayer_[GamePlayer_N].Amount = parseInt(TempAmount);
-                    StatePlayerSave(false);
-                }
-            }
-            else
-            {
-                if (confirm("Remove player " + GamePlayer_[GamePlayer_N].Name + "?"))
-                {
-                    GamePlayer_.splice(GamePlayer_N, 1);
-                    GamePlayer_C--;
-                    if (GamePlayer_N >= GamePlayer_C)
+                    TempAmount = prompt("Balance", TempAmount);
+                    if (TempAmount !== null)
                     {
-                        GamePlayer_N = 0;
-                    }
-                    if (GamePlayer_C == 0) 
-                    {
-                        GamePlayer_N = -1;
+                        if (isNaN(TempAmount)) { TempAmount = 0; }
+                        GamePlayer_[GamePlayer_N].Name = TempName;
+                        GamePlayer_[GamePlayer_N].Amount = parseInt(TempAmount);
+                        StatePlayerSave(false);
                     }
                 }
-                StatePlayerSave(true);
-                SetView();
+                else
+                {
+                    if (confirm("Remove player " + GamePlayer_[GamePlayer_N].Name + "?"))
+                    {
+                        GamePlayer_.splice(GamePlayer_N, 1);
+                        GamePlayer_C--;
+                        if (GamePlayer_N >= GamePlayer_C)
+                        {
+                            GamePlayer_N = 0;
+                        }
+                        if (GamePlayer_C == 0) 
+                        {
+                            GamePlayer_N = -1;
+                        }
+                    }
+                    StatePlayerSave(true);
+                    SetView();
+                }
             }
         }
     }
-
 
     PaintGame();
 }

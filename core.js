@@ -9,11 +9,11 @@ var WheelNumCount = 0;
 var WheelNums = [];
 var NumRed = [];
 
-var WheelSign = ["\u2664", "\u2661", "\u2662", "\u2667"];
+//var WheelSign = ["0", "\u2664", "\u2661", "\u2662", "\u2667"];
+//var WheelSign = ["0", "\u2660", "\u2665", "\u2666", "\u2663"];
+var WheelSign = ["A", "B", "C", "D", "E"];
 
-
-
-
+var ProbMode = false;
 
 function InitStart()
 {
@@ -84,15 +84,10 @@ function Init(GameType_)
         WheelNums = [0, 5, 12, 3, 10, 1, 8, 9, 2, 7, 6, 11, 4];
         NumRed = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0];
 
-        var ProbObj = document.getElementById("ProbNums");
-        ProbObj.rows[6].style["display"] = "none";
-        ProbObj.rows[7].style["display"] = "none";
-        ProbObj.rows[8].style["display"] = "none";
-        ProbObj.rows[9].style["display"] = "none";
-        ProbObj.rows[10].style["display"] = "none";
-        ProbObj.rows[11].style["display"] = "none";
-        ProbObj.rows[12].style["display"] = "none";
-        ProbObj.rows[13].style["display"] = "none";
+        for (var I = 13; I <= 36; I++)
+        {
+            document.getElementById("ProbN" + I).style["display"] = "none";
+        }
 
         document.getElementById("ProbNums100").style["display"] = "none";
     }

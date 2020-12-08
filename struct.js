@@ -331,11 +331,11 @@ var GamePlayer = function()
                 {
                     if (this.BetList[I][1] == 0)
                     {
-                        return [3, 7];
+                        return [3, 7, false];
                     }
                     else
                     {
-                        return [parseInt((this.BetList[I][1] - 1) / 3) * 4 + 7, 11 - (((this.BetList[I][1] - 1) % 3) * 4)];
+                        return [parseInt((this.BetList[I][1] - 1) / 3) * 4 + 7, 11 - (((this.BetList[I][1] - 1) % 3) * 4), false];
                     }
                 }
                 break;
@@ -345,20 +345,20 @@ var GamePlayer = function()
                     {
                         switch (this.BetList[I][2])
                         {
-                            case 1: return [5, 11];
-                            case 2: return [5,  7];
-                            case 3: return [5,  3];
+                            case 1: return [5, 11, false];
+                            case 2: return [5,  7, false];
+                            case 3: return [5,  3, false];
                         }
                     }
                     else
                     {
                         if ((this.BetList[I][2] - this.BetList[I][1]) == 1)
                         {
-                            return [parseInt((this.BetList[I][1] - 1) / 3) * 4 + 7, 9 - (((this.BetList[I][1] - 1) % 3) * 4)];
+                            return [parseInt((this.BetList[I][1] - 1) / 3) * 4 + 7, 9 - (((this.BetList[I][1] - 1) % 3) * 4), false];
                         }
                         else
                         {
-                            return [parseInt((this.BetList[I][1] - 1) / 3) * 4 + 9, 11 - (((this.BetList[I][1] - 1) % 3) * 4)];
+                            return [parseInt((this.BetList[I][1] - 1) / 3) * 4 + 9, 11 - (((this.BetList[I][1] - 1) % 3) * 4), false];
                         }
                     }
                 }
@@ -367,11 +367,11 @@ var GamePlayer = function()
                 {
                     if (this.BetList[I][1] == 0)
                     {
-                        return [5, 13 - this.BetList[I][2] * 4];
+                        return [5, 13 - this.BetList[I][2] * 4, false];
                     }
                     else
                     {
-                        return [parseInt((this.BetList[I][1] - 1) / 3) * 4 + 7, 13 - (((this.BetList[I][1] - 1) % 3) * 4)];
+                        return [parseInt((this.BetList[I][1] - 1) / 3) * 4 + 7, 13 - (((this.BetList[I][1] - 1) % 3) * 4), false];
                     }
                 }
                 break;
@@ -379,21 +379,21 @@ var GamePlayer = function()
                 {
                     if ((GameType == 1) && (this.BetList[I][2] - this.BetList[I][1]) == 3)
                     {
-                        return [23, 11 - (((this.BetList[I][1] - 1)) * 4)];
+                        return [23, 11 - (((this.BetList[I][1] - 1)) * 4), true];
                     }
                     if (this.BetList[I][1] == 0)
                     {
-                        return [5, 13];
+                        return [5, 13, false];
                     }
                     else
                     {
-                        return [parseInt((this.BetList[I][1] - 1) / 3) * 4 + 9, 9 - (((this.BetList[I][1] - 1) % 3) * 4)];
+                        return [parseInt((this.BetList[I][1] - 1) / 3) * 4 + 9, 9 - (((this.BetList[I][1] - 1) % 3) * 4), false];
                     }
                 }
                 break;
             case 6:
                 {
-                    return [parseInt((this.BetList[I][1] - 1) / 3) * 4 + 9, 13 - (((this.BetList[I][1] - 1) % 3) * 4)];
+                    return [parseInt((this.BetList[I][1] - 1) / 3) * 4 + 9, 13 - (((this.BetList[I][1] - 1) % 3) * 4), false];
                 }
                 break;
             case 7:
@@ -402,27 +402,27 @@ var GamePlayer = function()
                 {
                     switch (this.BetList[I][0] * 10 + this.BetList[I][1])
                     {
-                        case 71: return [55, 11];
-                        case 72: return [55,  7];
-                        case 73: return [55,  3];
-                        case 74: return [13, 15];
-                        case 75: return [29, 15];
-                        case 76: return [45, 15];
-                        case 77: return [53, 13];
-                        case 81: return [ 9, 19];
-                        case 82: return [17, 19];
-                        case 83: return [25, 19];
-                        case 84: return [33, 19];
-                        case 85: return [41, 19];
-                        case 86: return [49, 19];
+                        case 71: return [55, 11, true];
+                        case 72: return [55,  7, true];
+                        case 73: return [55,  3, true];
+                        case 74: return [13, 15, true];
+                        case 75: return [29, 15, true];
+                        case 76: return [45, 15, true];
+                        case 77: return [53, 13, true];
+                        case 81: return [ 9, 19, true];
+                        case 82: return [17, 19, true];
+                        case 83: return [25, 19, true];
+                        case 84: return [33, 19, true];
+                        case 85: return [41, 19, true];
+                        case 86: return [49, 19, true];
                     }
                 }
                 if (GameType == 1)
                 {
                     switch (this.BetList[I][0] * 10 + this.BetList[I][1])
                     {
-                        case 83: return [17, 15];
-                        case 84: return [9, 15];
+                        case 83: return [17, 15, true];
+                        case 84: return [9, 15, true];
                     }
                 }
                 break;
@@ -441,16 +441,16 @@ var GamePlayer = function()
                     {
                         switch(this.BetList[I][1])
                         {
-                            case 0:   return [11, 37];
-                            case 101: return [11, 29];
-                            case 102: return [11, 21];
-                            case 103: return [11, 13];
-                            case 104: return [11,  5];
+                            case   0: return [11,  5, false];
+                            case 101: return [11, 13, false];
+                            case 102: return [11, 21, false];
+                            case 103: return [11, 29, false];
+                            case 104: return [11, 37, false];
                         }
                     }
                     else
                     {
-                        return [15 + (4 * Math.floor((this.BetList[I][1] - 1) / 10)), 39 - (4 * ((this.BetList[I][1] - 1) % 10))];
+                        return [15 + (4 * Math.floor((this.BetList[I][1] - 1) / 10)), 3 + (4 * ((this.BetList[I][1] - 1) % 10)), false];
                     }
                 }
                 break;
@@ -460,31 +460,32 @@ var GamePlayer = function()
                     {
                         switch (this.BetList[I][2])
                         {
-                            case 1:   return [13, 39];
-                            case 2:   return [13, 35];
-                            case 3:   return [13, 31];
-                            case 4:   return [13, 27];
-                            case 5:   return [13, 23];
-                            case 6:   return [13, 19];
-                            case 7:   return [13, 15];
-                            case 8:   return [13, 11];
-                            case 9:   return [13,  7];
-                            case 10:  return [13,  3];
-                            case 101: return [11, 33];
-                            case 102: return [11, 25];
-                            case 103: return [11, 17];
-                            case 104: return [11,  9];
+                            case 1:   return [13,  3, false];
+                            case 2:   return [13,  7, false];
+                            case 3:   return [13, 11, false];
+                            case 4:   return [13, 15, false];
+                            case 5:   return [13, 19, false];
+                            case 6:   return [13, 23, false];
+                            case 7:   return [13, 27, false];
+                            case 8:   return [13, 31, false];
+                            case 9:   return [13, 35, false];
+                            case 10:  return [13, 39, false];
+
+                            case 101: return [11,  9, false];
+                            case 102: return [11, 17, false];
+                            case 103: return [11, 25, false];
+                            case 104: return [11, 33, false];
                         }
                     }
                     else
                     {
                         if ((this.BetList[I][2] - this.BetList[I][1]) == 10)
                         {
-                            return [17 + (4 * Math.floor((this.BetList[I][1] - 1) / 10)), 39 - (4 * ((this.BetList[I][1] - 1) % 10))];
+                            return [17 + (4 * Math.floor((this.BetList[I][1] - 1) / 10)), 3 + (4 * ((this.BetList[I][1] - 1) % 10)), false];
                         }
                         if ((this.BetList[I][2] - this.BetList[I][1]) == 1)
                         {
-                            return [15 + (4 * Math.floor((this.BetList[I][1] - 1) / 10)), 37 - (4 * ((this.BetList[I][1] - 1) % 10))];
+                            return [15 + (4 * Math.floor((this.BetList[I][1] - 1) / 10)), 5 + (4 * ((this.BetList[I][1] - 1) % 10)), false];
                         }
                     }
                 }
@@ -495,11 +496,11 @@ var GamePlayer = function()
                     {
                         switch (this.BetList[I][2])
                         {
-                            case 1:   return [13, 37];
-                            case 3:   return [13, 29];
-                            case 5:   return [13, 21];
-                            case 7:   return [13, 13];
-                            case 9:   return [13,  5];
+                            case 1:   return [13,  5, false];
+                            case 3:   return [13, 13, false];
+                            case 5:   return [13, 21, false];
+                            case 7:   return [13, 29, false];
+                            case 9:   return [13, 37, false];
                         }
                     }
                 }
@@ -510,15 +511,15 @@ var GamePlayer = function()
                     {
                         switch (this.BetList[I][2])
                         {
-                            case 101: return [13, 33];
-                            case 102: return [13, 25];
-                            case 103: return [13, 17];
-                            case 104: return [13,  9];
+                            case 101: return [13,  9, false];
+                            case 102: return [13, 17, false];
+                            case 103: return [13, 25, false];
+                            case 104: return [13, 33, false];
                         }
                     }
                     else
                     {
-                        return [17 + (4 * Math.floor((this.BetList[I][1] - 1) / 10)), 37 - (4 * ((this.BetList[I][1] - 1) % 10))];
+                        return [17 + (4 * Math.floor((this.BetList[I][1] - 1) / 10)), 5 + (4 * ((this.BetList[I][1] - 1) % 10)), false];
                     }
                 }
                 break;
@@ -526,11 +527,11 @@ var GamePlayer = function()
                 {
                     if ((this.BetList[I][1] >= 1) && (this.BetList[I][1] <= 10))
                     {
-                        return [55, 43 - (this.BetList[I][1] * 4)];
+                        return [55, 0 - 1 + (this.BetList[I][1] * 4), true];
                     }
                     if ((this.BetList[I][1] >= 11) && (this.BetList[I][1] <= 20))
                     {
-                        return [(this.BetList[I][1] * 4) - 29, 41];
+                        return [(this.BetList[I][1] * 4) - 29, 41, false];
                     }
                 }
                 break;
@@ -538,8 +539,8 @@ var GamePlayer = function()
                 {
                     switch (this.BetList[I][1])
                     {
-                        case  1: return [11, 41];
-                        case  2: return [13, 41];
+                        case 1: return [11, 41, false];
+                        case 2: return [13, 41, false];
                     }
                 }
                 break;
@@ -547,21 +548,21 @@ var GamePlayer = function()
                 {
                     if ((this.BetList[I][1] >=  1) && (this.BetList[I][1] <=  9))
                     {
-                        return [55, 41 - (this.BetList[I][1] * 4)];
+                        return [55, 1 + (this.BetList[I][1] * 4), true];
                     }
                     if ((this.BetList[I][1] >= 11) && (this.BetList[I][1] <= 19))
                     {
-                        return [(this.BetList[I][1] * 4) - 27, 41];
+                        return [(this.BetList[I][1] * 4) - 27, 41, false];
                     }
                 }
                 break;
             case 8:
                 switch (this.BetList[I][1])
                 {
-                    case 2: return [5, 33];
-                    case 3: return [5, 25];
-                    case 4: return [5, 17];
-                    case 5: return [5, 9];
+                    case 2: return [5, 9, true];
+                    case 3: return [5, 17, true];
+                    case 4: return [5, 25, true];
+                    case 5: return [5, 33, true];
                 }
                 break;
         }
@@ -586,19 +587,70 @@ var GamePlayer = function()
         this.WheelNeighLastS = -1;
         if (this.BetList.length == 0)
         {
-            for (var I = 0; I < this.BetList0.length; I++)
+            var ClrFactor = 1;
+            if (this.BetList0.length > 0)
             {
-                var BetItem = this.BetList0[I];
-                var BetItem_0 = BetItem[0];
-                var BetItem_1 = BetItem[1];
-                var BetItem_2 = BetItem[2];
-                var BetItem_3 = BetItem[3];
-                var BetItem_4 = BetItem[4];
-                var BetItem_5 = BetItem[5];
-                var BetItem_6 = BetItem[6];
-                var BetItem_7 = BetItem[7];
-                this.BetList.push([BetItem_0, BetItem_1, BetItem_2, BetItem_3, BetItem_4, BetItem_5, BetItem_6, BetItem_7]);
-                this.AmountT = this.AmountT + BetItem_7;
+                var ClrFactor1 = parseInt(prompt("Last bet numerator", "1"));
+                var ClrFactor2 = parseInt(prompt("Last bet denominator", "1"));
+                if ((ClrFactor1 == null) || isNaN(ClrFactor1))
+                {
+                    ClrFactor1 = 1;
+                }
+                if ((ClrFactor2 == null) || isNaN(ClrFactor2) || (ClrFactor2 == 0))
+                {
+                    ClrFactor2 = 1;
+                }
+                ClrFactor = ClrFactor1 / ClrFactor2;
+                if (ClrFactor < 0)
+                {
+                    ClrFactor = 0 - ClrFactor;
+                }
+            }
+            if (ClrFactor != 0)
+            {
+                for (var I = 0; I < this.BetList0.length; I++)
+                {
+                    var BetItem = this.BetList0[I];
+                    var BetItem_0 = BetItem[0];
+                    var BetItem_1 = BetItem[1];
+                    var BetItem_2 = BetItem[2];
+                    var BetItem_3 = BetItem[3];
+                    var BetItem_4 = BetItem[4];
+                    var BetItem_5 = BetItem[5];
+                    var BetItem_6 = BetItem[6];
+                    var BetItem_7 = BetItem[7];
+                    BetItem_7 = BetItem_7 * ClrFactor;
+                    var RoundFactor = 1;
+                    if ((GameType == 0) && (BetItem_0 == 12))
+                    {
+                        switch (BetItem_1)
+                        {
+                            case 0: RoundFactor = 9; break;
+                            case 1: RoundFactor = 5; break;
+                            case 2: RoundFactor = 6; break;
+                            case 3: RoundFactor = 5; break;
+                            case 4: RoundFactor = 9; break;
+                            case 5: RoundFactor = 4; break;
+                        }
+                    }
+                    
+                    if (GameType == 1)
+                    {
+                        RoundFactor = 2;
+                    }
+                    BetItem_7 = BetItem_7 / RoundFactor;
+                    BetItem_7 = Math.round(BetItem_7);
+                    BetItem_7 = parseInt(BetItem_7 * RoundFactor);
+                    if (BetItem_7 > 10000)
+                    {
+                        BetItem_7 = 10000;
+                    }
+                    if (BetItem_7 > 0)
+                    {
+                        this.BetList.push([BetItem_0, BetItem_1, BetItem_2, BetItem_3, BetItem_4, BetItem_5, BetItem_6, BetItem_7]);
+                        this.AmountT = this.AmountT + BetItem_7;
+                    }
+                }
             }
         }
         else
@@ -972,17 +1024,18 @@ var GamePlayer = function()
                 }
             }
         }
+        var AmountLastNoFactor = this.AmountLast;
         this.AmountLast = this.AmountLast * this.BetFactorVal;
         if (Prob)
         {
-            var AmountLast__ = this.AmountLast;
             this.AmountLast = AmountLast_;
-            return AmountLast__;
+            return parseInt(AmountLastNoFactor);
         }
         else
         {
             this.Amount = parseInt(this.Amount + this.AmountLast);
         }
+
     }
 }
 

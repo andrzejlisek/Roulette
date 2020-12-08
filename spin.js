@@ -34,7 +34,17 @@ function Spin()
 
     if (SpinMode == 3)
     {
-        Probability();
+        if (ProbMode)
+        {
+            ProbMode = false;
+        }
+        else
+        {
+            ProbMode = true;
+        }
+        StateSave();
+        ProbCalc();
+        ProbRepaint0();
         return;
     }
 
@@ -229,6 +239,7 @@ function SpinT()
         }
         StateSave();
         Spinning = false;
+        ProbCalc();
         PaintPlayerList();
         PaintCurrentPlayer();
         PaintTable();

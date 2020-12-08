@@ -7,7 +7,7 @@ var TableH = 500;
 var ViewMargin = 50;
 
 var ViewModeI = 0;
-var ViewModeIMax = 5;
+var ViewModeIMax = 6;
 
 
 var TableVisible = true;
@@ -196,11 +196,12 @@ function SetView()
         case 1:
         case 2:
         case 3:
+        case 4:
             TableVisible = true;
             WheelVisible = false;
             PlayersVisible = false;
 
-            if (GameType != 1)
+            if ((GameType != 1) && (ViewModeI != 1))
             {
                 if (TableProp < (TableW__ / TableH__))
                 {
@@ -209,7 +210,14 @@ function SetView()
                 }
                 else
                 {
-                    TableCellH = Math.floor(TableH_ / 26);
+                    if (GameType == 0)
+                    {
+                        TableCellH = Math.floor(TableH_ / 22);
+                    }
+                    else
+                    {
+                        TableCellH = Math.floor(TableH_ / 26);
+                    }
                     TableCellW = Math.floor(TableW_ / TableW__);
                 }
             }
@@ -236,21 +244,21 @@ function SetView()
                 {
                     if (TableOffsetX < TableX_)
                     {
-                        if (ViewModeI == 1) { TableOffsetX = TableX_; }
-                        if (ViewModeI == 3) { TableOffsetX = TableX_ + TableW_ - (TableCellW * TableW__); }
+                        if (ViewModeI == 2) { TableOffsetX = TableX_; }
+                        if (ViewModeI == 4) { TableOffsetX = TableX_ + TableW_ - (TableCellW * TableW__); }
                     }
                 }
                 else
                 {
                     if (TableOffsetY < TableY_)
                     {
-                        if (ViewModeI == 1) { TableOffsetY = TableY_; }
-                        if (ViewModeI == 3) { TableOffsetY = TableY_ + TableH_ - (TableCellH * TableH__); }
+                        if (ViewModeI == 2) { TableOffsetY = TableY_; }
+                        if (ViewModeI == 4) { TableOffsetY = TableY_ + TableH_ - (TableCellH * TableH__); }
                     }
                 }
             }
             break;
-        case 4:
+        case 5:
             TableVisible = false;
             WheelVisible = true;
             PlayersVisible = false;
@@ -420,6 +428,7 @@ function DrawButton(BtnId, BtnX, BtnW, BtnY, BtnT)
 
 function PaintGame()
 {
+    ProbCalc();
     PaintClear();
     PaintPlayerList();
     PaintCurrentPlayer();

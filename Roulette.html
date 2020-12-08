@@ -57,10 +57,10 @@
 
 
   <div id="ProbScreen" style="overflow:scroll; display:none; z-index:2; position:fixed; left:0px; top:0px; right:0px; bottom:0px; background-color:#FFFFFF; width:100%; height:100%; padding:0px; color:black; opacity: 0.95;">
-   <p><input type="button" value = "Close probability" onclick="CloseProb()" style="width:100%;height:10vh;"></p>
+   <p><input type="button" value = "Return" onclick="ProbClose()" style="width:100%;height:10vh;"></p>
    <div style="margin:10px;">
     <table>
-     <caption>Result probability</caption>
+     <caption>Value probability</caption>
      <tr><th style="background-color:#E0E0E0">Value</th><th colspan="2" style="background-color:#E0E0E0">STD</th><th colspan="2" style="background-color:#E0E0E0">NO-0</th></tr>
      <tr id="ProbP0"><td  align="right"></td><td align="right"></td><td align="right"></td><td align="right"></td><td align="right"></td></tr>
      <tr id="ProbP1"><td  align="right"></td><td align="right"></td><td align="right"></td><td align="right"></td><td align="right"></td></tr>
@@ -175,39 +175,181 @@
     </table>
     <p align="center"></p>
     <table id="ProbNums">
-     <caption>Result for each number</caption>
-     <tr><th style="background-color:#E0E0E0">Numbers</th><th style="background-color:#E0E0E0" colspan="3">Value</th></tr>
-     <tr><td style="background-color:#E0E0E0" align="center">0</td><td colspan="3" id="ProbN0" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0" align="center">1-3</td><td id="ProbN1" align="center">0</td><td id="ProbN2" align="center">0</td><td id="ProbN3" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0" align="center">4-6</td><td id="ProbN4" align="center">0</td><td id="ProbN5" align="center">0</td><td id="ProbN6" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0" align="center">7-9</td><td id="ProbN7" align="center">0</td><td id="ProbN8" align="center">0</td><td id="ProbN9" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0" align="center">10-12</td><td id="ProbN10" align="center">0</td><td id="ProbN11" align="center">0</td><td id="ProbN12" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0" align="center">13-15</td><td id="ProbN13" align="center">0</td><td id="ProbN14" align="center">0</td><td id="ProbN15" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0" align="center">16-18</td><td id="ProbN16" align="center">0</td><td id="ProbN17" align="center">0</td><td id="ProbN18" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0" align="center">19-21</td><td id="ProbN19" align="center">0</td><td id="ProbN20" align="center">0</td><td id="ProbN21" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0" align="center">22-24</td><td id="ProbN22" align="center">0</td><td id="ProbN23" align="center">0</td><td id="ProbN24" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0" align="center">25-27</td><td id="ProbN25" align="center">0</td><td id="ProbN26" align="center">0</td><td id="ProbN27" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0" align="center">28-30</td><td id="ProbN28" align="center">0</td><td id="ProbN29" align="center">0</td><td id="ProbN30" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0" align="center">31-33</td><td id="ProbN31" align="center">0</td><td id="ProbN32" align="center">0</td><td id="ProbN33" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0" align="center">34-36</td><td id="ProbN34" align="center">0</td><td id="ProbN35" align="center">0</td><td id="ProbN36" align="center">0</td></tr>
+     <caption>Game table</caption>
+     <tr>
+      <td rowspan="3" id="ProbN0" align="center">0</td>
+      <td id="ProbN3" align="center">0</td>
+      <td id="ProbN6" align="center">0</td>
+      <td id="ProbN9" align="center">0</td>
+      <td id="ProbN12" align="center">0</td>
+      <td id="ProbN15" align="center">0</td>
+      <td id="ProbN18" align="center">0</td>
+      <td id="ProbN21" align="center">0</td>
+      <td id="ProbN24" align="center">0</td>
+      <td id="ProbN27" align="center">0</td>
+      <td id="ProbN30" align="center">0</td>
+      <td id="ProbN33" align="center">0</td>
+      <td id="ProbN36" align="center">0</td>
+     </tr>
+     <tr>
+      <td id="ProbN2" align="center">0</td>
+      <td id="ProbN5" align="center">0</td>
+      <td id="ProbN8" align="center">0</td>
+      <td id="ProbN11" align="center">0</td>
+      <td id="ProbN14" align="center">0</td>
+      <td id="ProbN17" align="center">0</td>
+      <td id="ProbN20" align="center">0</td>
+      <td id="ProbN23" align="center">0</td>
+      <td id="ProbN26" align="center">0</td>
+      <td id="ProbN29" align="center">0</td>
+      <td id="ProbN32" align="center">0</td>
+      <td id="ProbN35" align="center">0</td>
+     </tr>
+     <tr>
+      <td id="ProbN1" align="center">0</td>
+      <td id="ProbN4" align="center">0</td>
+      <td id="ProbN7" align="center">0</td>
+      <td id="ProbN10" align="center">0</td>
+      <td id="ProbN13" align="center">0</td>
+      <td id="ProbN16" align="center">0</td>
+      <td id="ProbN19" align="center">0</td>
+      <td id="ProbN22" align="center">0</td>
+      <td id="ProbN25" align="center">0</td>
+      <td id="ProbN28" align="center">0</td>
+      <td id="ProbN31" align="center">0</td>
+      <td id="ProbN34" align="center">0</td>
+     </tr>
     </table>
     <table id="ProbNums100">
-     <caption>Result for each number</caption>
-     <tr><th style="background-color:#E0E0E0">Numbers</th><th style="background-color:#E0E0E0" colspan="10">Value</th></tr>
-     <tr><td style="background-color:#E0E0E0" align="center">0&#9828;&#9825;&#9826;&#9831;</td><td colspan="2" id="Prob100N0" align="center">0</td><td colspan="2" id="Prob100N101" align="center">0</td><td colspan="2" id="Prob100N102" align="center">0</td><td colspan="2" id="Prob100N103" align="center">0</td><td colspan="2" id="Prob100N104" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0"   align="center">1-10</td><td id="Prob100N1"  align="center">0</td><td id="Prob100N2"  align="center">0</td><td id="Prob100N3"  align="center">0</td><td id="Prob100N4"  align="center">0</td><td id="Prob100N5"  align="center">0</td><td id="Prob100N6"  align="center">0</td><td id="Prob100N7"  align="center">0</td><td id="Prob100N8"  align="center">0</td><td id="Prob100N9"  align="center">0</td><td id="Prob100N10" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0"  align="center">11-20</td><td id="Prob100N11" align="center">0</td><td id="Prob100N12" align="center">0</td><td id="Prob100N13" align="center">0</td><td id="Prob100N14" align="center">0</td><td id="Prob100N15" align="center">0</td><td id="Prob100N16" align="center">0</td><td id="Prob100N17" align="center">0</td><td id="Prob100N18" align="center">0</td><td id="Prob100N19" align="center">0</td><td id="Prob100N20" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0"  align="center">21-30</td><td id="Prob100N21" align="center">0</td><td id="Prob100N22" align="center">0</td><td id="Prob100N23" align="center">0</td><td id="Prob100N24" align="center">0</td><td id="Prob100N25" align="center">0</td><td id="Prob100N26" align="center">0</td><td id="Prob100N27" align="center">0</td><td id="Prob100N28" align="center">0</td><td id="Prob100N29" align="center">0</td><td id="Prob100N30" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0"  align="center">31-40</td><td id="Prob100N31" align="center">0</td><td id="Prob100N32" align="center">0</td><td id="Prob100N33" align="center">0</td><td id="Prob100N34" align="center">0</td><td id="Prob100N35" align="center">0</td><td id="Prob100N36" align="center">0</td><td id="Prob100N37" align="center">0</td><td id="Prob100N38" align="center">0</td><td id="Prob100N39" align="center">0</td><td id="Prob100N40" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0"  align="center">41-50</td><td id="Prob100N41" align="center">0</td><td id="Prob100N42" align="center">0</td><td id="Prob100N43" align="center">0</td><td id="Prob100N44" align="center">0</td><td id="Prob100N45" align="center">0</td><td id="Prob100N46" align="center">0</td><td id="Prob100N47" align="center">0</td><td id="Prob100N48" align="center">0</td><td id="Prob100N49" align="center">0</td><td id="Prob100N50" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0"  align="center">51-60</td><td id="Prob100N51" align="center">0</td><td id="Prob100N52" align="center">0</td><td id="Prob100N53" align="center">0</td><td id="Prob100N54" align="center">0</td><td id="Prob100N55" align="center">0</td><td id="Prob100N56" align="center">0</td><td id="Prob100N57" align="center">0</td><td id="Prob100N58" align="center">0</td><td id="Prob100N59" align="center">0</td><td id="Prob100N60" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0"  align="center">61-70</td><td id="Prob100N61" align="center">0</td><td id="Prob100N62" align="center">0</td><td id="Prob100N63" align="center">0</td><td id="Prob100N64" align="center">0</td><td id="Prob100N65" align="center">0</td><td id="Prob100N66" align="center">0</td><td id="Prob100N67" align="center">0</td><td id="Prob100N68" align="center">0</td><td id="Prob100N69" align="center">0</td><td id="Prob100N70" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0"  align="center">71-80</td><td id="Prob100N71" align="center">0</td><td id="Prob100N72" align="center">0</td><td id="Prob100N73" align="center">0</td><td id="Prob100N74" align="center">0</td><td id="Prob100N75" align="center">0</td><td id="Prob100N76" align="center">0</td><td id="Prob100N77" align="center">0</td><td id="Prob100N78" align="center">0</td><td id="Prob100N79" align="center">0</td><td id="Prob100N80" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0"  align="center">81-90</td><td id="Prob100N81" align="center">0</td><td id="Prob100N82" align="center">0</td><td id="Prob100N83" align="center">0</td><td id="Prob100N84" align="center">0</td><td id="Prob100N85" align="center">0</td><td id="Prob100N86" align="center">0</td><td id="Prob100N87" align="center">0</td><td id="Prob100N88" align="center">0</td><td id="Prob100N89" align="center">0</td><td id="Prob100N90" align="center">0</td></tr>
-     <tr><td style="background-color:#E0E0E0" align="center">91-100</td><td id="Prob100N91" align="center">0</td><td id="Prob100N92" align="center">0</td><td id="Prob100N93" align="center">0</td><td id="Prob100N94" align="center">0</td><td id="Prob100N95" align="center">0</td><td id="Prob100N96" align="center">0</td><td id="Prob100N97" align="center">0</td><td id="Prob100N98" align="center">0</td><td id="Prob100N99" align="center">0</td><td id="Prob100N100" align="center">0</td></tr>
+     <caption>Game table</caption>
+     <tr>
+      <td id="Prob100N0"  align="center" rowspan="2">0</td>
+      <td id="Prob100N1"  align="center">0</td>
+      <td id="Prob100N11" align="center">0</td>
+      <td id="Prob100N21" align="center">0</td>
+      <td id="Prob100N31" align="center">0</td>
+      <td id="Prob100N41" align="center">0</td>
+      <td id="Prob100N51" align="center">0</td>
+      <td id="Prob100N61" align="center">0</td>
+      <td id="Prob100N71" align="center">0</td>
+      <td id="Prob100N81" align="center">0</td>
+      <td id="Prob100N91" align="center">0</td>
+     </tr>
+     <tr>
+      <td id="Prob100N2"  align="center">0</td>
+      <td id="Prob100N12" align="center">0</td>
+      <td id="Prob100N22" align="center">0</td>
+      <td id="Prob100N32" align="center">0</td>
+      <td id="Prob100N42" align="center">0</td>
+      <td id="Prob100N52" align="center">0</td>
+      <td id="Prob100N62" align="center">0</td>
+      <td id="Prob100N72" align="center">0</td>
+      <td id="Prob100N82" align="center">0</td>
+      <td id="Prob100N92" align="center">0</td>
+     </tr>
+     <tr>
+      <td id="Prob100N101" align="center" rowspan="2">0</td>
+      <td id="Prob100N3"  align="center">0</td>
+      <td id="Prob100N13" align="center">0</td>
+      <td id="Prob100N23" align="center">0</td>
+      <td id="Prob100N33" align="center">0</td>
+      <td id="Prob100N43" align="center">0</td>
+      <td id="Prob100N53" align="center">0</td>
+      <td id="Prob100N63" align="center">0</td>
+      <td id="Prob100N73" align="center">0</td>
+      <td id="Prob100N83" align="center">0</td>
+      <td id="Prob100N93" align="center">0</td>
+     </tr>
+     <tr>
+      <td id="Prob100N4"  align="center">0</td>
+      <td id="Prob100N14" align="center">0</td>
+      <td id="Prob100N24" align="center">0</td>
+      <td id="Prob100N34" align="center">0</td>
+      <td id="Prob100N44" align="center">0</td>
+      <td id="Prob100N54" align="center">0</td>
+      <td id="Prob100N64" align="center">0</td>
+      <td id="Prob100N74" align="center">0</td>
+      <td id="Prob100N84" align="center">0</td>
+      <td id="Prob100N94" align="center">0</td>
+     </tr>
+     <tr>
+      <td id="Prob100N102" align="center" rowspan="2">0</td>
+      <td id="Prob100N5"  align="center">0</td>
+      <td id="Prob100N15" align="center">0</td>
+      <td id="Prob100N25" align="center">0</td>
+      <td id="Prob100N35" align="center">0</td>
+      <td id="Prob100N45" align="center">0</td>
+      <td id="Prob100N55" align="center">0</td>
+      <td id="Prob100N65" align="center">0</td>
+      <td id="Prob100N75" align="center">0</td>
+      <td id="Prob100N85" align="center">0</td>
+      <td id="Prob100N95" align="center">0</td>
+     </tr>
+     <tr>
+      <td id="Prob100N6"  align="center">0</td>
+      <td id="Prob100N16" align="center">0</td>
+      <td id="Prob100N26" align="center">0</td>
+      <td id="Prob100N36" align="center">0</td>
+      <td id="Prob100N46" align="center">0</td>
+      <td id="Prob100N56" align="center">0</td>
+      <td id="Prob100N66" align="center">0</td>
+      <td id="Prob100N76" align="center">0</td>
+      <td id="Prob100N86" align="center">0</td>
+      <td id="Prob100N96" align="center">0</td>
+     </tr>
+     <tr>
+      <td id="Prob100N103" align="center" rowspan="2">0</td>
+      <td id="Prob100N7"  align="center">0</td>
+      <td id="Prob100N17" align="center">0</td>
+      <td id="Prob100N27" align="center">0</td>
+      <td id="Prob100N37" align="center">0</td>
+      <td id="Prob100N47" align="center">0</td>
+      <td id="Prob100N57" align="center">0</td>
+      <td id="Prob100N67" align="center">0</td>
+      <td id="Prob100N77" align="center">0</td>
+      <td id="Prob100N87" align="center">0</td>
+      <td id="Prob100N97" align="center">0</td>
+     </tr>
+     <tr>
+      <td id="Prob100N8"  align="center">0</td>
+      <td id="Prob100N18" align="center">0</td>
+      <td id="Prob100N28" align="center">0</td>
+      <td id="Prob100N38" align="center">0</td>
+      <td id="Prob100N48" align="center">0</td>
+      <td id="Prob100N58" align="center">0</td>
+      <td id="Prob100N68" align="center">0</td>
+      <td id="Prob100N78" align="center">0</td>
+      <td id="Prob100N88" align="center">0</td>
+      <td id="Prob100N98" align="center">0</td>
+     </tr>
+     <tr>
+      <td id="Prob100N104" align="center" rowspan="2">0</td>
+      <td id="Prob100N9"  align="center">0</td>
+      <td id="Prob100N19" align="center">0</td>
+      <td id="Prob100N29" align="center">0</td>
+      <td id="Prob100N39" align="center">0</td>
+      <td id="Prob100N49" align="center">0</td>
+      <td id="Prob100N59" align="center">0</td>
+      <td id="Prob100N69" align="center">0</td>
+      <td id="Prob100N79" align="center">0</td>
+      <td id="Prob100N89" align="center">0</td>
+      <td id="Prob100N99" align="center">0</td>
+     </tr>
+     <tr>
+      <td id="Prob100N10"  align="center">0</td>
+      <td id="Prob100N20" align="center">0</td>
+      <td id="Prob100N30" align="center">0</td>
+      <td id="Prob100N40" align="center">0</td>
+      <td id="Prob100N50" align="center">0</td>
+      <td id="Prob100N60" align="center">0</td>
+      <td id="Prob100N70" align="center">0</td>
+      <td id="Prob100N80" align="center">0</td>
+      <td id="Prob100N90" align="center">0</td>
+      <td id="Prob100N100" align="center">0</td>
+     </tr>
     </table>
    </div>
-   <p><input type="button" value = "Close probability" onclick="CloseProb()" style="width:100%;height:10vh;"></p>
+   <p><input type="button" value = "Return" onclick="ProbClose()" style="width:100%;height:10vh;"></p>
   </div>
 
   <div id="HelpScreen" style="overflow:scroll; display:none; z-index:2; position:fixed; left:0px; top:0px; right:0px; bottom:0px; background-color:#FFFFFF; width:100%; height:100%; padding:0px; color:black; opacity: 0.95;">
@@ -215,13 +357,13 @@
    <div style="margin:10px;">
     <h1>Overview</h1>
     <p>There are three roulette games, which can be played by several players and has the same rules, as in the most casinos in Europe. You have to select game by clicking the name on the intro screen. To play the selected game you have to add al least on player to player list. The screen information is available while no players are on the player list only. In the such case, the help information is available by clicking the working area or the buttons, which function are related to the current player (every button other than <b>PLA</b> and <b>STD</b>).</p>
-    <p>There are the following gams</p>
+    <p>There are the following games:</p>
     <ul>
      <li><i>Classic roulette</i> - The classical european roulette with 36 numbers and one zero. This game supports the wheel standard sectors bets known as racetrack.</li>
      <li><i>Mini roulette</i> - Roulette with 12 numbers and zero. If the zero is hit, for all bets, which not includes the zero there are lost only half of value.</li>
-     <li><i>100 roulette</i> - Roulette with 100 numbers, zero and card suits, which has the same rules as the zero.</li>
+     <li><i>100 roulette</i> - Roulette with 100 numbers, in place of zero, there are five letters.</li>
     </ul>
-    <p>If the zero or special symbol is hit, all outside bets (odd/even, low/high, red/black, dozens, columns, snake) are lost as a whole. In the <i>Mini roulette</i>, if zero is hit, the player loses only half of value of the bets, which excludes the zero. There is reason, why in the <i>Mini roulette</i> all bets must have even value.</p>
+    <p>If the zero or letter is hit, all outside bets (odd/even, low/high, red/black, dozens, columns, snake) are lost as a whole. In the <i>Mini roulette</i>, if zero is hit, the player loses only half of value of the bets, which excludes the zero. There is reason, why in the <i>Mini roulette</i> all bets must have even value.</p>
     <h1>Information bar</h1>
     <p>At the top of the game screen, there is the current player information bar, which is blank, while the player list is blank. During the game, in the bar there ase the following informations:</p>
     <ul>
@@ -233,7 +375,7 @@
     </ul>
     <p>The bar is clicking sensitive and has the two the most important game functions (available also while the player list is blank):</p>
     <ul>
-     <li><b>Click on the left or right 1/3 part (where are the player name, balance, factor and bet values)</b> - Change the screen layout.</li>
+     <li><b>Click on the left or right 1/3 part (where are the player name, balance, factor and bet values)</b> - Change the display (all, table only, wheel only).</li>
      <li><b>Click on the center 1/3 part (where are the Chip and Last values)</b> - Spin the wheel (perform the game round), if player list is blank, displays help information.</li>
     </ul>
     <h1>Button bar</h1>
@@ -244,7 +386,7 @@
      <li><b>C-</b> - Decrease the number of chips change by once click.</li>
      <li><b>C+</b> - Increase the number of chips change by once click.</li>
      <li><b>+/-</b> - Switch between chip adding and removing, the state is indicated by value change sign.</li>
-     <li><b>CLR</b> - Clear all bets (if table is blank) or set bets from previous round (if table is not blank).</li>
+     <li><b>CLR</b> - Clear all bets (if table is not blank) or set bets from previous round (if table is blank).</li>
      <li><b>F-</b> - Decrease the chip value factor.</li>
      <li><b>F+</b> - Increase the chip value factor.</li>
      <li><b>PLA</b> - Add a player to the player list.</li>
@@ -270,12 +412,28 @@
     <h2>Sectors</h2>
     <p>Sector bets are available in <i>Classic roulette</i> only. Inside the wheel, you can place the following sector bets:</p>
     <ul>
-     <li><b>S. 0/2/3</b> - Serie 5/8 - Vousins du Zero - Neighbours of Zero</li>
-     <li><b>0-GAME</b> - 0-Spiel - Zero game</li>
-     <li><b>S. 5/8</b> - Serie 5/8 - Tiers du Cylindre - Thirds of the wheel</li>
-     <li><b>ORP.</b> - Orphelins - Orphans</li>
+     <li><b>S. 0/2/3</b> - Serie 5/8 - Vousins du Zero - Neighbours of Zero:</li>
+     <ul>
+      <li>1 chip for split: {4, 7}, {12, 15}, {18, 21}, {19, 22}, {32, 35}</li>
+      <li>2 chips for trio: {0, 2, 3}</li>
+      <li>2 chips for corner: {25, 26, 28, 29}</li>
+     </ul>
+     <li><b>0-GAME</b> - 0-Spiel - Zero game:</li>
+     <ul>
+      <li>1 chip for straight: {26}</li>
+      <li>1 chip for split: {0, 3}, {12, 15}, {32, 35}</li>
+     </ul>
+     <li><b>S. 5/8</b> - Serie 5/8 - Tiers du Cylindre - Thirds of the wheel:</li>
+     <ul>
+      <li>1 chip for split: {5, 8}, {10, 11}, {13, 16}, {23, 24}, {27, 30}, {33, 36}</li>
+     </ul>
+     <li><b>ORP.</b> - Orphelins - Orphans:</li>
+     <ul>
+      <li>1 chip for straight: {1}</li>
+      <li>1 chip for split: {6, 9}, {14, 17}, {17, 20}, {31, 34}</li>
+     </ul>
     </ul>
-    <p>The both <b>S. 0/2/3</b> secotrs are treated as the once sector. You can place the chips on both <b>S. 0/2/3</b> sectors, but the bet will be totalized from both sectors. The both <b>ORP.</b> sectors works the same way. The number of placed chips will be automatically multiplied against the sector bet rules.</p>
+    <p>The both <b>S. 0/2/3</b> sectors are treated as the once sector. You can place the chips on both <b>S. 0/2/3</b> sectors, but the bet will be totalized from both sectors. The both <b>ORP.</b> sectors works the same way. The number of placed chips will be automatically multiplied against the sector bet rules.</p>
     <p>When you perform the spin, the sector bets will be moved to the table against sector betting rules.</p>
     <h2>Neighbors</h2>
     <p>By clicking the center of the wheel, you can set the number of neighbours from 0 to 5. The number of neighbours will be shown in the wheel center.</p>
@@ -290,7 +448,7 @@
     <h1>Chip value factor</h1>
     <p>Roulette allows wide range of bet values, so the value of one chip can be set by value factor per one chip. You can change the value factor by clicking <b>F+</b> and <b>F-</b> from 1 do 1 billion in the power of 10 steps. You cannot place several bets in wider range than four order of magnitude due to 10000 chips limit per place, but you can increase the bet value by increasing the value factor. The real bet value (including the factor) are displayed as the <b>Bet</b> value.</p>
     <h1>Wheel in the <i>100 roulette</i></h1>
-    <p>The wheel in the <i>100 roulette</i> has 105 symbols (numbers from 1 to 100, zero and four card suits). The 105 units on the wheel circumference will be to narrow to click using the finger and to show chip value. The wheel is splited to three parts, because 3 is one of divisors of 105 and on the circumference there are only 35 units. The splitting point is indicated by white radial placed line. If you look for the numbers clockwise (when the wheel not rotates), the parts are ordered from outer, through the middle, to inner, and the inner part passes to the outer part.</p>
+    <p>The wheel in the <i>100 roulette</i> has 105 symbols (numbers from 1 to 100 and 5 letters). The 105 units on the wheel circumference will be to narrow to click using the finger and to show chip value. The wheel is splited to three parts, because 3 is one of divisors of 105 and on the circumference there are only 35 units. The splitting point is indicated by white radial placed line. If you look for the numbers clockwise (when the wheel not rotates), the parts are ordered from outer, through the middle, to inner, and the inner part passes to the outer part.</p>
     <p>You can place the chips only on symbols, which are on the most outer parts. After symbol click, the splitting point will be places on the opposite place related to clicked symbol.</p>
     <p>If you want to click one of the symbols, which is currently on the middle part or inner part, you have to click anywhere on the middle or inner part to move the part to the outer part. The splitting line will be placed on the opposite side related to the clicked symbol.</p>
     <h1>Spinning the wheel</h1>
@@ -298,40 +456,59 @@
     <ul>
      <li><b>STD</b> - Standard mode. The wheel will automatically choose any of all available numbers or symbols, including zero or card suit.</li>
      <li><b>NO-0</b> - Non-zero mode. The mode elliminates the house edge, wheel will automatically choose any number excluding the zero or card suit, despite this, you can place bets including the zero or card suit, but the zero or card suit will never be hit.</li>
-     <li><b>SEL</b> - Selection mode. The randomization is turned off and the player have to select the winning number by clicking the number of the table or on the wheel. This mode is for test and educational purposes.</li>
-     <li><b>PROB</b> - Display win and lose probability for current player instead of spinning the wheel.</li>
+     <li><b>SEL</b> - Selection mode. The randomization is turned off and the player have to select the hit number by clicking the number of the table or on the wheel. This mode is for test and educational purposes.</li>
+     <li><b>PROB</b> - Switch between normal mode and probability mode without wheel spining.</li>
     </ul>
     <p>To spin the wheel, click on the the right 2/3 part of information bar, where are the <b>Chip</b>, <b>Last</b>, <b>Factor</b> and <b>Bet</b> values. During the wheel spinning all functions excepting the screen layout and selecting the number in <b>SEL</b> mode are disabled. If the wheel spinning mode is set to <b>SEL</b>, choose the wining number by clicking on the wheel on on the table.</p>
-    <p>After the winning number is determined by random in the <b>STD</b> or <b>NO-0</b> mode or by choosing in <b>SEL</b> mode, the balance for every player will be automatically changed by the winning or losing value. The value will be displayed as the <b>Last</b> value. The current player selection does not affect the spinning process and result.</p>
-    <p>The winning bets will left on the table and the other bets will be removed. The game round ends on this. After that, the next round begins and, you and the other players can again place the bet and spin the wheel. You can use <b>CLR</b> button to clear placed chips. If the table is blank, this button will set the same bets, which was set in previous round.</p>
+    <p>After the hit number is determined by random in the <b>STD</b> or <b>NO-0</b> mode or by choosing in <b>SEL</b> mode, the balance for every player will be automatically changed by the winning or losing value. The value will be displayed as the <b>Last</b> value. The current player selection does not affect the spinning process and result.</p>
+    <p>The winning bets will left on the table and the other bets will be removed. The game round ends on this. After that, the next round begins and, you and the other players can again place the bet and spin the wheel. You can use <b>CLR</b> button to clear placed chips.</p>
+    <p>If the table is blank, this <b>CLR</b> button will allow to set the same bets, which was set in previous round, but you can set the value change factor. To set the factor, you will be asked for <b>Last bet numerator</b> and <b>Last bet denominator</b>. By default, both values are 1 and this value will be used if you input incorrect value. The value of each restored chip will be multiplied by the quotient of numerator and denominator. The chip value will be rounded to integer number. In the <i>Mini roulette</i> the value will be rounded to multiply of 2.</p>
+    <p>For example, to double bet, input 2 as numerator and 1 as denominator. To make half a bet, input 1 as numerator and 2 as denominator.</p>
+    <p>If calculated chip value exceedes 10000, the value will be set to 10000. If the calculated and rounded chip value is 0, the chip will not be placed.</p>
     <p>The number of rounds are not limited, everytime in placing bet state, a player can be added or removed. At the next to the wheel there are the 12 last hit number, the last number is highlighted in the bar.</p>
     <h1>Win/lose probability</h1>
-    <p>In the <b>PROB</b> wheel spinning mode, you can show the probability of win and lose information instead of the wheel spin. The information consists of two tables, which shows the information for the current player:</p>
+    <p>In the <b>PROB</b> wheel spinning mode, you can switch between normal and probability display modes instead of the wheel spin. In the probability mode, the showing information for the current player.</p>
+    <p>You can play the game, but in the probability mode, there are some differences:</p>
     <ul>
-     <li><b>Result probability</b> - Each win (positive, green background) or lose (negative, red background) value possible at the current bet for <b>STD</b> and <b>NO-0</b> modes. The probability is shown as fraction (exact probability) and percentage (rounded to 1 percent point).</li>
-     <li><b>Result for each number</b> - The round result for each number, which can be hit. In the <b>NO-0</b> mode the 0 number cannot be hit and there is the only difference between <b>STD</b> and <b>NO-0</b>.</li>
+     <li>On the table and on the wheel, instead of numbers, there will be displayed the change of balance if this number will hit at the spining. The background colors are following:
+      <ul>
+       <li>Green - You will win.</li>
+       <li>Yellow - Your balance will not be changed.</li>
+       <li>Red - You will lose.</li>
+      </ul>
+     </li>
+     <li>On the table, the chips placed on the inside bets will not be visible, however, you can change the chips by clicking on the table as in normal mode.</li>
+     <li>In place of player list, there will be displayed the value probability for <b>STD</b> and <b>NO-0</b> spining mode. The table summarizes, which values of spinning are possible and with how high probability of each.</li>
+     <li>If you click the value probability table, you willl see the same information, but it can be more readable on certain cases.</li>
     </ul>
+    <p>To increate readibility, the <b>Factor</b> setting is not included in the value.</p>
     <h1>Payout</h1>
-    <p>In each game, the payout ratio depends on count of numbers excluding the zero and card suits, which equals to number os possible hits when you playing oin <b>NO-0</b> mode. The other elements, on which payout ratio depends, is the counts of numbers, which beat covers.</p>
-    <p>Exactly, the payout radio can be calculated from the following formula: P = ((N / X) - 1)</p>
+    <p>In each game, the payout ratio depends on count of numbers excluding the zero and letters, which equals to number of possible hits when you playing in <b>NO-0</b> mode. The other elements, on which payout ratio depends, is the counts of numbers, which beat covers.</p>
+    <p>Exactly, the payout radio can be calculated from the following formula: <b>P = ((N / X) - 1)</b></p>
     <ul>
      <li>P - Payout ratio.</li>
-     <li>N - Count of available numbers excluding the zero and card suits (available in <b>NO-0</b> mode).</li>
-     <li>X - Count of numbers (or numbers and card suits totally in <i>100 roulette</i>) covered by bet.</li>
+     <li>N - Count of all available numbers excluding the zero or letters.
+      <ul>
+       <li><i>Classic roulette</i>: <b>N = 36</b></li>
+       <li><i>Mini roulette</i>: <b>N = 12</b></li>
+       <li><i>100 roulette</i>: <b>N = 100</b></li>
+      </ul>
+     </li>
+     <li>X - Count of numbers including the zero or letters covered by bet.</li>
     </ul>
     <p>Some payout radios calculated from above formula are not integer value. Every such radio is rounded down to integer and markered as italic in the following bet payout ratio table.</p>
     <table border="1">
      <tr><th>Bet</th><th>Classic</th><th>Mini</th><th>100</th></tr>
      <tr><td>Straight</td><td align="center">35:1</td><td align="center">11:1</td><td align="center">99:1</td></tr>
      <tr><td>Split</td><td align="center">17:1</td><td align="center">5:1</td><td align="center">49:1</td></tr>
-     <tr><td>Three numbers</td><td align="center">11:1</td><td align="center">3:1</td><td align="center"><i>32:1</i></td></tr>
+     <tr><td>Trio</td><td align="center">11:1</td><td align="center">3:1</td><td align="center"><i>32:1</i></td></tr>
      <tr><td>Corner</td><td align="center">8:1</td><td align="center">2:1</td><td align="center">24:1</td></tr>
-     <tr><td>Zero Street</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">19:1</td></tr>
-     <tr><td>Zero Line</td><td align="center">8:1</td><td align="center">2:1</td><td align="center"><i>5:1</i></td></tr>
+     <tr><td>All letters</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">19:1</td></tr>
+     <tr><td>Basket</td><td align="center">8:1</td><td align="center">2:1</td><td align="center"><i>5:1</i></td></tr>
      <tr><td>Street</td><td align="center">11:1</td><td align="center">3:1</td><td align="center">9:1</td></tr>
      <tr><td>Line</td><td align="center">5:1</td><td align="center">1:1</td><td align="center">4:1</td></tr>
      <tr><td>Column</td><td align="center">2:1</td><td align="center">2:1</td><td align="center">9:1</td></tr>
-     <tr><td>Two columns</td><td align="center">2:1</td><td align="center">2:1</td><td align="center">4:1</td></tr>
+     <tr><td>Two columns</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">4:1</td></tr>
      <tr><td>Dozen</td><td align="center">2:1</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td></tr>
      <tr><td>Snake</td><td align="center">2:1</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td></tr>
      <tr><td>Low/High</td><td align="center">1:1</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td></tr>

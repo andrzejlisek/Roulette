@@ -25,6 +25,115 @@ function WheelCalcOffset2()
     return Math.PI * AngleOffsetI / 35;
 }
 
+function PaintWheelNumber(X, Y, Idx, Color, Circle)
+{
+    if (ProbMode)
+    {
+        var V = ProbValue(WheelNums[Idx]);
+        var V_ = V > 0 ? V : 0 - V;
+        var LineSplit = 0;
+        
+        var FontConst = 0.04;
+        if (Circle != 0)
+        {
+            if (Circle == 1)
+            {
+                FontConst = 0.04 * 0.7;
+            }
+            else
+            {
+                FontConst = 0.04 * 0.4;
+            }
+        }
+        if (V_ < 100)
+        {
+            SvgTextSize = SetViewFont(WheelD1 * 2 * FontConst);
+        }
+        else
+        {
+            if (V_ < 1000)
+            {
+                SvgTextSize = SetViewFont(WheelD1 * 1.5 * FontConst);
+            }
+            else
+            {
+                if (V_ < 10000)
+                {
+                    SvgTextSize = SetViewFont(WheelD1 * 1.2 * FontConst);
+                }
+                else
+                {
+                    if (V_ < 10000000)
+                    {
+                        LineSplit = WheelD1 * 0.03;
+                        SvgTextSize = SetViewFont(WheelD1 * 1.5 * FontConst);
+                    }
+                    else
+                    {
+                        LineSplit = WheelD1 * 0.03;
+                        SvgTextSize = SetViewFont(WheelD1 * 1.2 * FontConst);
+                    }
+                }
+            }
+        }        
+        var T = PlusMinus(V);
+        if (LineSplit > 0)
+        {
+            var L = T.length;
+            var L_;
+            if ((L % 2) == 0)
+            {
+                L_ = L / 2;
+            }
+            else
+            {
+                L_ = (L + 1) / 2;
+            }
+            var T1 = T.substr(0, L_);
+            var T2 = T.substr(L_);
+            SvgAddText(SvgWheel, X, Y - LineSplit, T1, Color);
+            SvgAddText(SvgWheel, X, Y + LineSplit, T2, Color);
+        }
+        else
+        {
+            SvgAddText(SvgWheel, X, Y, T, Color);
+        }
+    }
+    else
+    {
+        if (Circle == 0)
+        {
+            SvgTextSize = WheelFont;
+        }
+        else
+        {
+            if (Circle == 1)
+            {
+                SvgTextSize = WheelFont2;
+            }
+            else
+            {
+                SvgTextSize = WheelFont3;
+            }
+        }
+        if ((GameType != 2) || ((WheelNums[Idx] < 101) && (WheelNums[Idx] > 0)))
+        {
+            SvgAddText(SvgWheel, X, Y, WheelNums[Idx], Color);
+        }
+        else
+        {
+            if (Idx == 0)
+            {
+                SvgAddText(SvgWheel, X, Y, WheelSign[WheelNums[0]], Color);
+            }
+            else
+            {
+                SvgAddText(SvgWheel, X, Y, WheelSign[WheelNums[Idx] - 100], Color);
+            }
+        }
+    }
+}
+
 function PaintWheel()
 {
     if (!WheelVisible)
@@ -65,17 +174,17 @@ function PaintWheel()
         // 15-19
         var AngleRT7 = (((40 + 0.0) * 2.0 * Math.PI) / 37) + AngleOffset;
 
-        SvgAddLine(SvgWheel, WheelX, WheelY, WheelX + (Math.cos(AngleRT1) * WheelD2), WheelY + (Math.sin(AngleRT1) * WheelD2), ColorForeground);
+        SvgAddLine(SvgWheel, WheelX, WheelY, WheelX + (Math.cos(AngleRT1) * WheelD1), WheelY + (Math.sin(AngleRT1) * WheelD1), ColorForeground);
 
-        SvgAddLine(SvgWheel, WheelX, WheelY, WheelX + (Math.cos(AngleRT2) * WheelD2), WheelY + (Math.sin(AngleRT2) * WheelD2), ColorForeground);
+        SvgAddLine(SvgWheel, WheelX, WheelY, WheelX + (Math.cos(AngleRT2) * WheelD1), WheelY + (Math.sin(AngleRT2) * WheelD1), ColorForeground);
 
-        SvgAddLine(SvgWheel, WheelX, WheelY, WheelX + (Math.cos(AngleRT3) * WheelD2), WheelY + (Math.sin(AngleRT3) * WheelD2), ColorForeground);
+        SvgAddLine(SvgWheel, WheelX, WheelY, WheelX + (Math.cos(AngleRT3) * WheelD1), WheelY + (Math.sin(AngleRT3) * WheelD1), ColorForeground);
 
-        SvgAddLine(SvgWheel, WheelX, WheelY, WheelX + (Math.cos(AngleRT4) * WheelD2), WheelY + (Math.sin(AngleRT4) * WheelD2), ColorForeground);
+        SvgAddLine(SvgWheel, WheelX, WheelY, WheelX + (Math.cos(AngleRT4) * WheelD1), WheelY + (Math.sin(AngleRT4) * WheelD1), ColorForeground);
 
-        SvgAddLine(SvgWheel, WheelX, WheelY, WheelX + (Math.cos(AngleRT5) * WheelD2), WheelY + (Math.sin(AngleRT5) * WheelD2), ColorForeground);
+        SvgAddLine(SvgWheel, WheelX, WheelY, WheelX + (Math.cos(AngleRT5) * WheelD1), WheelY + (Math.sin(AngleRT5) * WheelD1), ColorForeground);
 
-        SvgAddLine(SvgWheel, WheelX, WheelY, WheelX + (Math.cos(AngleRT6) * WheelD2), WheelY + (Math.sin(AngleRT6) * WheelD2), ColorForeground);
+        SvgAddLine(SvgWheel, WheelX, WheelY, WheelX + (Math.cos(AngleRT6) * WheelD1), WheelY + (Math.sin(AngleRT6) * WheelD1), ColorForeground);
 
         // Sector names and chips
         var TempX = 0;
@@ -126,6 +235,34 @@ function PaintWheel()
         var DrawTab1 = [1, 2, 0];
         var DrawTab2 = [2, 0, 1];
         var I_N;
+
+        var WheelD1_1 = WheelD1 - ((WheelD3 - WheelD5) / 2);
+        var WheelD3_1 = WheelD3 - ((WheelD3 - WheelD5) / 2);
+        var WheelD1_2 = WheelD1_1 - ((WheelD3 - WheelD5) / 2);
+        var WheelD3_2 = WheelD3_1 - ((WheelD3 - WheelD5) / 2);
+        for (I = 0; I < 35; I++)
+        {
+            var Angle = (((I) * 2.0 * Math.PI) / 35) + (AngleOffset * 3);
+            
+            var X1 = (WheelX + (Math.cos(Angle) * WheelD1));
+            var Y1 = (WheelY + (Math.sin(Angle) * WheelD1));
+            var X2 = (WheelX + (Math.cos(Angle) * WheelD3));
+            var Y2 = (WheelY + (Math.sin(Angle) * WheelD3));
+            SvgAddLine(SvgWheel, X1, Y1, X2, Y2, ColorForeground);
+
+            X1 = (WheelX + (Math.cos(Angle) * WheelD1_1));
+            Y1 = (WheelY + (Math.sin(Angle) * WheelD1_1));
+            X2 = (WheelX + (Math.cos(Angle) * WheelD3_1));
+            Y2 = (WheelY + (Math.sin(Angle) * WheelD3_1));
+            SvgAddLine(SvgWheel, X1, Y1, X2, Y2, ColorForeground);
+
+            X1 = (WheelX + (Math.cos(Angle) * WheelD1_2));
+            Y1 = (WheelY + (Math.sin(Angle) * WheelD1_2));
+            X2 = (WheelX + (Math.cos(Angle) * WheelD3_2));
+            Y2 = (WheelY + (Math.sin(Angle) * WheelD3_2));
+            SvgAddLine(SvgWheel, X1, Y1, X2, Y2, ColorForeground);
+        }
+        
         for (I_ = 0; I_ < 3; I_++)
         {
             for (I = 0; I < 35; I++)
@@ -177,32 +314,39 @@ function PaintWheel()
                     NumColorIdx = GamePlayer_[GamePlayer_N].WheelNeighLast(I_N);
                 }
                 var SectorColor = null;
-                if ((I_N == 0) || (I_N == 21) || (I_N == 42) || (I_N == 63) || (I_N == 84))
+                if (ProbMode)
                 {
-                    SectorColor = ColorGreen[NumColorIdx];
+                    SectorColor = ProbColor(WheelNums[I_N]);
                 }
                 else
                 {
-                    if (((I_N > 21) && (I_N < 42)) || ((I_N > 63) && (I_N < 84)))
+                    if ((I_N == 0) || (I_N == 21) || (I_N == 42) || (I_N == 63) || (I_N == 84))
                     {
-                        if ((I_N % 2) == 1)
-                        {
-                            SectorColor = ColorBlack[NumColorIdx];
-                        }
-                        else
-                        {
-                            SectorColor = ColorRed[NumColorIdx];
-                        }
+                        SectorColor = ColorGreen[NumColorIdx];
                     }
                     else
                     {
-                        if ((I_N % 2) == 0)
+                        if (((I_N > 21) && (I_N < 42)) || ((I_N > 63) && (I_N < 84)))
                         {
-                            SectorColor = ColorBlack[NumColorIdx];
+                            if ((I_N % 2) == 1)
+                            {
+                                SectorColor = ColorBlack[NumColorIdx];
+                            }
+                            else
+                            {
+                                SectorColor = ColorRed[NumColorIdx];
+                            }
                         }
                         else
                         {
-                            SectorColor = ColorRed[NumColorIdx];
+                            if ((I_N % 2) == 0)
+                            {
+                                SectorColor = ColorBlack[NumColorIdx];
+                            }
+                            else
+                            {
+                                SectorColor = ColorRed[NumColorIdx];
+                            }
                         }
                     }
                 }
@@ -246,11 +390,11 @@ function PaintWheel()
                 if (WheelPos == I_N)
                 {
                     SvgAddCircle(SvgWheel, Angle1, Angle2, WheelBall * WheelDFactor, null, ColorChip1);
-                    SvgAddText(SvgWheel, Angle1, Angle2, (WheelNums[I_N] < 101) ? WheelNums[I_N] : WheelSign[WheelNums[I_N] - 101], ColorChip2);
+                    PaintWheelNumber(Angle1, Angle2, I_N, ColorChip2, I_);
                 }
                 else
                 {
-                    SvgAddText(SvgWheel, Angle1, Angle2, (WheelNums[I_N] < 101) ? WheelNums[I_N] : WheelSign[WheelNums[I_N] - 101], ColorForeground);
+                    PaintWheelNumber(Angle1, Angle2, I_N, ColorForeground, I_);
                 }
 
                 // Chips on numbers
@@ -285,6 +429,18 @@ function PaintWheel()
     {
         for (I = 0; I < WheelNumCount; I++)
         {
+            var Angle = (((I) * 2.0 * Math.PI) / WheelNumCount) + AngleOffset;
+            
+            var X1 = (WheelX + (Math.cos(Angle) * WheelD1));
+            var Y1 = (WheelY + (Math.sin(Angle) * WheelD1));
+            var X2 = (WheelX + (Math.cos(Angle) * WheelD3));
+            var Y2 = (WheelY + (Math.sin(Angle) * WheelD3));
+
+            SvgAddLine(SvgWheel, X1, Y1, X2, Y2, ColorForeground);
+        }
+
+        for (I = 0; I < WheelNumCount; I++)
+        {
             var Angle1 = (((I + 0.0) * 2.0 * Math.PI) / WheelNumCount) + AngleOffset;
             var Angle2 = (((I + 1.0) * 2.0 * Math.PI) / WheelNumCount) + AngleOffset;
             var Angle0 = (((I + 0.5) * 2.0 * Math.PI) / WheelNumCount) + AngleOffset;
@@ -295,19 +451,26 @@ function PaintWheel()
                 NumColorIdx = GamePlayer_[GamePlayer_N].WheelNeighLast(I);
             }
             var SectorColor = null;
-            if (I == 0)
+            if (ProbMode)
             {
-                SectorColor = ColorGreen[NumColorIdx];
+                SectorColor = ProbColor(WheelNums[I]);
             }
             else
             {
-                if ((I % 2) == 0)
+                if (I == 0)
                 {
-                    SectorColor = ColorBlack[NumColorIdx];
+                    SectorColor = ColorGreen[NumColorIdx];
                 }
                 else
                 {
-                    SectorColor = ColorRed[NumColorIdx];
+                    if ((I % 2) == 0)
+                    {
+                        SectorColor = ColorBlack[NumColorIdx];
+                    }
+                    else
+                    {
+                        SectorColor = ColorRed[NumColorIdx];
+                    }
                 }
             }
 
@@ -320,17 +483,16 @@ function PaintWheel()
             SvgAddPolygon(SvgWheel, Coords, null, SectorColor);
 
             // Number and ball
-            SvgTextSize = WheelFont;
             Angle1 = WheelX + (Math.cos(Angle0) * WheelD2);
             Angle2 = WheelY + (Math.sin(Angle0) * WheelD2);
             if (WheelPos == I)
             {
                 SvgAddCircle(SvgWheel, Angle1, Angle2, WheelBall, null, ColorChip1);
-                SvgAddText(SvgWheel, Angle1, Angle2, WheelNums[I], ColorChip2);
+                PaintWheelNumber(Angle1, Angle2, I, ColorChip2, 0);
             }
             else
             {
-                SvgAddText(SvgWheel, Angle1, Angle2, WheelNums[I], ColorForeground);
+                PaintWheelNumber(Angle1, Angle2, I, ColorForeground, 0);
             }
 
 
@@ -416,7 +578,7 @@ function PaintWheel()
                 if (SpinHist[I] > 100)
                 {
                     SvgAddRect(SvgWheel, TempX, TempY, WheelHistoryBoxS, WheelHistoryBoxS, null, ColorGreen[I == 0 ? 1 : 0]);
-                    SvgAddText(SvgWheel, TempX + (WheelHistoryBoxS / 2), TempY + (WheelHistoryBoxS / 2), WheelSign[SpinHist[I] - 101], ColorForeground);
+                    SvgAddText(SvgWheel, TempX + (WheelHistoryBoxS / 2), TempY + (WheelHistoryBoxS / 2), WheelSign[SpinHist[I] - 100], ColorForeground);
                 }
                 else
                 {
