@@ -326,7 +326,7 @@ function SetView()
     WheelBall = Math.round(WheelD * 0.07);
 
 
-    WheelChipSize = Math.round(WheelD * 0.06)
+    WheelChipSize = Math.round(WheelD * 0.06);
     WheelFontChip1 = SetViewFont(WheelChipSize * 1.9);
     WheelFontChip2 = SetViewFont(WheelChipSize * 1.8);
     WheelFontChip3 = SetViewFont(WheelChipSize * 1.1);
@@ -366,8 +366,8 @@ function PaintClear()
     var BtnSize = (TableW * 0.94 / BtnCount);
     var BtnOffset = (TableW * 0.03 / BtnCount);
 
-    DrawButton(1, (TableW  *  0 / BtnCount) + BtnOffset, BtnSize, 1, "<<")
-    DrawButton(2, (TableW  *  1 / BtnCount) + BtnOffset, BtnSize, 1, ">>")
+    DrawButton(1, (TableW  *  0 / BtnCount) + BtnOffset, BtnSize, 1, "<<");
+    DrawButton(2, (TableW  *  1 / BtnCount) + BtnOffset, BtnSize, 1, ">>");
 
     DrawButton(3, (TableW  *  2 / BtnCount) + BtnOffset, BtnSize, 1, "C-");
     DrawButton(4, (TableW  *  3 / BtnCount) + BtnOffset, BtnSize, 1, "C+");
@@ -418,12 +418,6 @@ function DrawButton(BtnId, BtnX, BtnW, BtnY, BtnT)
     SvgAddText(SvgBack, X_ + (W_ / 2), Y_ + (H_ / 2), BtnT, ColorForeground);
 
 }
-
-
-
-
-
-
 
 
 function PaintGame()

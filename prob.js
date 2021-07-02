@@ -201,7 +201,7 @@ function ProbOpen()
     var NumTableN = (GameType == 2) ? "100" : "";
     for (var I = 0; I < WheelNumCount; I++)
     {
-        var NumVal = ProbArray[I]
+        var NumVal = ProbArray[I];
         Obj = document.getElementById("Prob" + NumTableN + "N" + I);
         Obj.innerHTML = PlusMinus(NumVal);
         if (NumVal < 0)

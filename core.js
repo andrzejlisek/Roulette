@@ -125,7 +125,7 @@ function Init(GameType_)
         var X = e.clientX + window.scrollX - parseInt(TableDispSvg.getBoundingClientRect().left);
         var Y = e.clientY + window.scrollY - parseInt(TableDispSvg.getBoundingClientRect().top);
         TableClick(X, Y, e.buttons);
-    }
+    };
 
     StatePlayerLoad(true);
 

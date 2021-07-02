@@ -33,7 +33,7 @@ var GamePlayer = function()
     this.WheelNeighLastReset = function()
     {
         this.WheelNeighLastS = -1;
-    }
+    };
 
 
     this.WheelNeighLast = function(N)
@@ -93,7 +93,7 @@ var GamePlayer = function()
             }
         }
         return 0;
-    }
+    };
 
     this.WheelNeighChange = function(Sgn)
     {
@@ -132,7 +132,7 @@ var GamePlayer = function()
                 this.WheelNeigh = 0;
             }
         }
-    }
+    };
 
     this.SetFactor = function(N)
     {
@@ -151,7 +151,7 @@ var GamePlayer = function()
             }
         }
         this.BetFactorVal = parseInt(Math.pow(10, this.BetFactor));
-    }
+    };
 
     this.PutChipW = function(N, N1, Sgn)
     {
@@ -252,14 +252,14 @@ var GamePlayer = function()
                 this.PutChip(12, 2,  0,  0,  0, 0, 0, Sgn * 6);
             }
         }
-    }
+    };
 
 
 
     this.PutChip = function(N, N1, N2, N3, N4, N5, N6, Sgn)
     {
         this.PutChipT(N, N1, N2, N3, N4, N5, N6, Sgn, this.BetNominal[this.BetNominalI] * this.BetNominalSign * Sgn);
-    }
+    };
 
     this.PutChipT = function(N, N1, N2, N3, N4, N5, N6, Sgn, Val_)
     {
@@ -320,7 +320,7 @@ var GamePlayer = function()
             this.BetList.push([N, N1, N2, N3, N4, N5, N6, Val]);
             this.AmountT += Val;
         }
-    }
+    };
 
     // Chip coordinates for classic and mini roulette
     this.GetBetXY_1 = function(I)
@@ -428,7 +428,7 @@ var GamePlayer = function()
                 break;
         }
         return null;
-    }
+    };
 
     // Chip coordinates for 100 number roulette
     this.GetBetXY_2 = function(I)
@@ -567,7 +567,7 @@ var GamePlayer = function()
                 break;
         }
         return null;
-    }
+    };
 
 
     this.GetBetXY = function(I)
@@ -580,7 +580,7 @@ var GamePlayer = function()
         {
             return(this.GetBetXY_1(I));
         }
-    }
+    };
 
     this.ClearBets = function()
     {
@@ -658,7 +658,7 @@ var GamePlayer = function()
             this.BetList = [];
             this.AmountT = 0;
         }
-    }
+    };
 
     // Remove temporary bets created for probability calculation only
     this.RemoveSectorBets = function()
@@ -733,7 +733,7 @@ var GamePlayer = function()
             this.PutChipT(2, 32, 35,  0,  0, 0, 0, 1, SectorTemp[5]);
             this.PutChipT(1, 26,  0,  0,  0, 0, 0, 1, SectorTemp[5]);
         }
-    }
+    };
     
 
     // Move sector bets to table
@@ -814,7 +814,7 @@ var GamePlayer = function()
             this.PutChipT(2, 32, 35,  0,  0, 0, 0, 1, SectorTemp[5]);
             this.PutChipT(1, 26,  0,  0,  0, 0, 0, 1, SectorTemp[5]);
         }
-    }
+    };
 
 
     // Calculate win and lose after spinning wheel
@@ -1036,8 +1036,8 @@ var GamePlayer = function()
             this.Amount = parseInt(this.Amount + this.AmountLast);
         }
 
-    }
-}
+    };
+};
 
 
 function PlayerSelected()
